@@ -1,0 +1,17 @@
+.img_cs {
+  width:100%;
+}
+
+.mat-grid-tile-footer {
+  background: rgba(0,0,0,.7);
+  }
+
+  .mat-grid-title>img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mat-grid-tile-footer a {
+    text-decoration: none;
+  }
+

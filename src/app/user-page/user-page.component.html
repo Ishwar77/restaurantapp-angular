@@ -1,0 +1,34 @@
+<p style="text-align: center">SPECIFY TABLE ID</p>
+<!--<mat-card *ngIf="!isLoading"> -->
+  <form
+  [formGroup]="myform"
+  >
+  <mat-form-field>
+    <input
+    matInput
+    name="inputTableID"
+    type="text"
+    placeholder="Specify Table ID"
+    formControlName="inputTable"
+    >
+
+  </mat-form-field>
+  <app-show-errors [control]="myform.controls.inputTable"></app-show-errors>
+  
+        <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="onSignUp()"
+        >REGISTER</button>
+        &nbsp;&nbsp;
+        <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="onLogin()"
+        >SING IN</button>
+  </form>
+<!--</mat-card> -->
+
+

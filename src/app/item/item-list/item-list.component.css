@@ -1,0 +1,53 @@
+.post-image {
+  width:100%;
+}
+
+.post-image img {
+  width:100%;
+  box-shadow: 1px 1px 5px rgb(0,0,0,0.5);
+}
+
+
+mat-spinner {
+  margin:auto;
+}
+
+
+.mat-expansion-panel-header {
+  font-weight:500;
+}
+
+.item_data {
+  word-break: break-all;
+}
+
+.spacer {
+  flex : 1 1 auto;
+}
+
+.item_price {
+  color: #3f51b5;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 18px;
+ /* margin-top: 9px;*/
+}
+
+.item_desp > h6 , .item_desp > p {
+  margin-top:10px;
+  margin-bottom: 0px;
+}
+
+.main_title{
+  text-align: center;
+  font-size: 4vw;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.mat-form-field{
+  width:14%;
+}
+
+

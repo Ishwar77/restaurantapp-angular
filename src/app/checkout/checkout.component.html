@@ -1,0 +1,66 @@
+<p class="dcen">
+  CHECK OUT PAGE
+</p>
+<p class="cart_mesg">TOTAL PAYABLE AMOUNT : <span>{{total_cost}}</span></p>
+<mat-card>
+<h3>Provide Payment Details</h3>
+<form
+    [formGroup]="myform"
+    (submit)="onFormSubmit()">
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName='inputAccount'
+        placeholder="Account Holder Name"
+        >
+    </mat-form-field>
+    <app-show-errors [control]="myform.controls.inputAccount"></app-show-errors>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName='inputBank'
+        placeholder="Bank Name"
+        >
+    </mat-form-field>
+    <app-show-errors [control]="myform.controls.inputBank"></app-show-errors>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName='inputCardType'
+        placeholder="Card Type"
+        >
+    </mat-form-field>
+    <app-show-errors [control]="myform.controls.inputCardType"></app-show-errors>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName='inputCardNo'
+        placeholder="Card Number"
+        >
+    </mat-form-field>
+    <app-show-errors [control]="myform.controls.inputCardNo"></app-show-errors>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName='inputCardCvv'
+        placeholder="Cvv Number"
+        >
+    </mat-form-field>
+    <app-show-errors [control]="myform.controls.inputCardCvv"></app-show-errors>
+    <button
+    mat-raised-button
+    color="accent"
+    type="submit"
+    [disabled]="myform.invalid"
+    >Make Payment</button>
+</form>
+</mat-card>

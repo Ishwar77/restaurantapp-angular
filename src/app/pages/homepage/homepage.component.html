@@ -1,0 +1,15 @@
+<div layout="row" layout-align="start center">
+<h3 style="text-align:center">WELCOME TO RESTAURANT APP</h3>
+<img class="img_cs" src="assets/mainpage.jpg" cross-origin="anonymous">
+<h3 style="text-align:center">MENUS AS BELOW</h3>
+<mat-grid-list cols="2" rowHeight="2:1">
+
+  <mat-grid-tile *ngFor="let cat of cat_list">
+      <img [src]='cat.inputCategoryImage' [alt]='cat.inputCategory' style="width:100%;height:100%" cross-origin="anonymous">
+      <mat-grid-tile-footer style="background: rgba(0,0,0,.7)">
+        <a [routerLink]="['/catitems',cat._id]"><h3 style="color: wheat;">{{cat.inputCategory}}</h3></a>
+      </mat-grid-tile-footer>
+  </mat-grid-tile>
+
+</mat-grid-list>
+</div>

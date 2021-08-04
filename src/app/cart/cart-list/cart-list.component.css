@@ -1,0 +1,21 @@
+.mat-header-cell,mat-cell {
+  justify-content: center;
+}
+
+.dcen {
+ text-align:center;
+}
+
+.dright {
+  text-align:right;
+ }
+
+.cart_mesg {
+  margin-top: 26px;
+  color: brown;
+  font-size: medium;
+}
+
+.material-icons {
+  cursor:pointer
+}

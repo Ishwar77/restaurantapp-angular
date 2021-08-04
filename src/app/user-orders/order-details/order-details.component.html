@@ -1,0 +1,30 @@
+<p class="dcen">
+  YOUR CART
+</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="ORDER_DATA.length>0">
+  <!-- Position Column -->
+  <ng-container matColumnDef="ItemName">
+    <mat-header-cell *matHeaderCellDef> ItemName </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.ItemName}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Quantity">
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Quantity}} </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="dright" *ngIf="ORDER_DATA.length>0">
+
+   <button mat-raised-button style="margin: 15px auto;"
+    color="warn"
+    type="button"
+    (click)="ServeOrder()"
+    >SERVE THE ORDER</button>
+</div>
+<p class="dcen cart_mesg" *ngIf="ORDER_DATA.length==0">ORDER IS EMPTY</p>
+

@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,800');
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Open Sans', sans-serif; }
+
+h1,h2,h3,h4,h5 {color:#000;}
+h1 {font-weight:400;}
+h2,h3,h4,b,strong {font-weight:700;}
+hr{border-color:#D4C3C8;}
+
+mat-form-field,textarea {
+  width:100%;
+}
+
+.mat-error {
+  margin-top: -15px;
+  font-size: 14px;
+  font-family: -webkit-body;
+  color: chocolate;
+}
+
+.alert-danger {
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  text-align: center;
+  color: #0c5460;
+  background-color: #d41636;
+  border-color: #bee5eb;
+}
+
+.alert-success {
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  text-align: center;
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+

@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  <span><a routerLink='/'>RESTAURANT APP</a></span>
+
+  <span class="spacer"></span>
+  <mat-menu #menu="matMenu">
+    <div *ngIf="isAuthenticated && Auth_user_role==0">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item routerLink='/newuser'>
+        <span >Add New User</span>
+      </button>
+      <button mat-menu-item routerLink='/category'>
+        <span >Add New Category</span>
+      </button>
+      <button mat-menu-item routerLink='/item'>
+        <span >Add New Item</span>
+      </button>
+      <button mat-menu-item (click)="AdminLogout()">
+        <span >Logout</span>
+      </button>
+    </div>
+
+    <div *ngIf="isAuthenticated && Auth_user_role==1">
+      <button mat-menu-item routerLink='/orderlist'>
+        <span >View New Orders</span>
+      </button>
+      <button mat-menu-item (click)="AdminLogout()">
+        <span >Logout</span>
+      </button>
+    </div>
+
+    <div *ngIf="isAuthenticated && Auth_user_role==2">
+      <button mat-menu-item routerLink='/'>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item routerLink='/cartlist'>
+         <span>My Cart</span>
+      </button>
+      <button mat-menu-item routerLink='/lastorder'>
+        <span>My Last Order</span>
+     </button>
+      <button mat-menu-item (click)="Logout()">
+        <span >Logout</span>
+      </button>
+    </div>
+
+  </mat-menu>
+
+
+  <ul>
+   <!-- <li><a mat-button routerLink='/login' *ngIf="!isAuthenticated">LOGIN</a></li>-->
+    <li><a mat-button routerLink='/cartlist' *ngIf="isAuthenticated && Auth_user_role==2">MYCART</a></li>
+    <li><a mat-button *ngIf="isAuthenticated" (click)="Logout()">LOGOUT</a></li>
+   <!-- <li><a mat-button  *ngIf="!isAuthenticated" routerLink='/register'>SIGNUP</a></li>
+    <li><button mat-button>LOGOUT</button></li>-->
+  </ul>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+</mat-toolbar>

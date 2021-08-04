@@ -1,0 +1,34 @@
+<mat-card>
+  <h3>ADD NEW CATEGORY</h3>
+  <form
+    [formGroup]="myform"
+    (submit)="onFormSubmit()">
+      <mat-form-field>
+          <input
+          matInput
+          type="text"
+          formControlName='inputCategory'
+          placeholder="Specify Category Name"
+          >
+
+
+        </mat-form-field>
+        <app-show-errors [control]="myform.controls.inputCategory"></app-show-errors>
+        <div>
+            <button class="ubutton" mat-stroked-button type="button" (click)="uploadfile.click()">Upload Category Image</button>
+            <input type="file" #uploadfile (change)="onImagePicked($event)">
+        </div>
+        <div class="image-preview" *ngIf=" imagePreview!== '' && imagePreview  && myform.get('inputCategoryImage').valid" cross-origin="anonymous">
+            <img [src]="imagePreview" [alt]="myform.value.title">
+        </div>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="myform.invalid"
+        >Save Category</button>
+  </form>
+</mat-card>
+
+
+

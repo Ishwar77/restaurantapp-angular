@@ -1,0 +1,76 @@
+<p style="text-align: center">ADD NEW USER</p>
+<mat-card *ngIf="!isLoading">
+  <form
+  [formGroup]="myform"
+  (submit)="onSubmit()">
+  <mat-form-field>
+    <input
+    matInput
+    name="inputFname"
+    type="text"
+    placeholder="Specify FirstName"
+    formControlName="inputFname"
+    >
+
+  </mat-form-field>
+  <app-show-errors [control]="myform.controls.inputFname"></app-show-errors>
+  <mat-form-field>
+    <input
+    matInput
+    name="inputLname"
+    type="text"
+    placeholder="Specify LastName"
+    formControlName="inputLname"
+    >
+    <mat-error *ngIf="myform.controls.inputLname.invlaid">Plase Enter Valid LastName</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+    matInput
+    name="inputContact"
+    type="text"
+    placeholder="Specify Phone Number"
+    formControlName="inputContact"
+    >
+    <mat-error *ngIf="myform.controls.inputContact.invlaid">Plase Enter Valid PhoneNo</mat-error>
+  </mat-form-field>
+
+        <mat-form-field>
+          <input
+          matInput
+          name="inputUsername"
+          type="email"
+          placeholder="Email ID"
+          formControlName="inputUsername"
+          >
+          <mat-error *ngIf="myform.controls.inputUsername.invlaid">Plase Enter Valid Email</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          matInput
+          type="password"
+          name="inputPassword"
+          placeholder="Password"
+          formControlName="inputPassword"
+          >
+          <mat-error *ngIf="myform.controls.inputPassword.invlaid">Plase Enter Valid Password</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select
+            placeholder="Select User type"
+            formControlName="inputRole"
+            >
+            <mat-option value="0">Super Admin</mat-option>
+            <mat-option value="1">Kitchen Admin</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        >REGISTER</button>
+  </form>
+</mat-card>
+
+

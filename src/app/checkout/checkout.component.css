@@ -1,0 +1,15 @@
+.dcen {
+  text-align:center;
+ }
+
+ .dright {
+   text-align:right;
+  }
+
+ .cart_mesg {
+   margin-top: 26px;
+   color: brown;
+   text-align:center;
+   font-weight:600;
+   font-size: medium;
+ }

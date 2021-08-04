@@ -1,0 +1,81 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card>
+  <h3>ADD NEW ITEM</h3>
+  <form
+   [formGroup]="myform"
+   (submit)="onSavePost()">
+       <mat-form-field>
+          <input
+          matInput
+          type="text"
+          formControlName="inputItemName"
+          placeholder="Specify Item Name"
+          >
+
+        </mat-form-field>
+        <app-show-errors [control]="myform.controls.inputItemName"></app-show-errors>
+        <mat-form-field>
+            <mat-select
+              placeholder="Item Category"
+              formControlName="inputCategory"
+              >
+              <mat-option *ngFor="let cat of category_list" [value]="cat._id">
+                {{cat.inputCategory}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput
+                    placeholder="Provide Description About Item in Short"
+                    formControlName="inputDescription"
+                    >
+          </textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput
+                    placeholder="Item Ingredients in Short"
+                    formControlName="inputIngridients"
+                    >
+          </textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput
+                    placeholder="Health Benefits in Short"
+                    formControlName="inputHealthBenifits"
+                    >
+          </textarea>
+        </mat-form-field>
+        <mat-radio-group formControlName="inputIsVeg">
+          <mat-radio-button value="1">Veg</mat-radio-button>
+          <mat-radio-button value="2">Non-Veg</mat-radio-button>
+        </mat-radio-group>
+
+        <div>
+          <button class="ubutton" mat-stroked-button type="button" (click)="uploadfile.click()">Upload Item Image</button>
+          <input type="file" #uploadfile (change)="onImagePicked($event)">
+        </div>
+
+        <div class="image-preview" *ngIf=" imagePreview!== '' && imagePreview  && myform.get('inputItemImage').valid" cross-origin="anonymous">
+          <img [src]="imagePreview" [alt]="myform.value.title">
+        </div>
+
+        <mat-form-field>
+          <input
+          matInput
+          type="text"
+          formControlName="inputUnitPrice"
+          placeholder="Specify Unit Price"
+          >
+
+        </mat-form-field>
+        <button
+        [disabled]="myform.invalid"
+        mat-raised-button
+        color="accent"
+        type="submit"
+        >Save Item</button>
+  </form>
+</mat-card>
+
+
+

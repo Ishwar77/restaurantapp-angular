@@ -1,0 +1,40 @@
+
+<mat-card *ngIf="!isLoading">
+  <form
+  [formGroup]="myform"
+  (submit)="onLogin()">
+      <mat-form-field>
+          <input
+          matInput
+          name="EmailInput"
+          type="email"
+          placeholder="Email ID"
+          formControlName="inputUsername"
+          >
+          <mat-error *ngIf="myform.controls.inputUsername.invlaid">Plase Enter Valid Email</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          matInput
+          type="password"
+          name="PasswordInput"
+          placeholder="Password"
+          formControlName="inputPassword"
+          >
+          <mat-error *ngIf="myform.controls.inputPassword.invlaid">Please Enter Valid Password</mat-error>
+        </mat-form-field>
+        <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        >LOGIN</button>
+        <button
+        mat-raised-button
+        color="accent"
+        type="button" routerLink='/register/{{tableId}}'
+        >REGISTER AS NEW USER</button>
+  </form>
+</mat-card>
+
+
+

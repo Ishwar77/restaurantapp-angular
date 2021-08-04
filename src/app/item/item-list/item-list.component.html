@@ -1,0 +1,49 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<p *ngIf="!isLoading" class="main_title">
+  {{catergory_details.inputCategory}}
+</p>
+<mat-accordion *ngIf="item_list.length>0 && !isLoading">
+  <mat-expansion-panel *ngFor="let item of item_list">
+    <mat-expansion-panel-header>
+      {{item.inputItemName}}
+    </mat-expansion-panel-header>
+    <div class="post-image">
+        <img [src]='item.inputItemImage' [alt]='item.inputItemName' cross-origin="anonymous">
+      </div>
+    <mat-panel-description>
+        <div class="item_desp">
+            <h6 style="color:pink">Description</h6>
+            <p class="item_data">{{item.inputDescription}}</p>
+        </div>
+    </mat-panel-description>
+    <mat-panel-description>
+        <div class="item_desp">
+            <h6 style="color:pink">Ingredients</h6>
+            <p class="item_data">{{item.inputIngridients}}</p>
+        </div>
+    </mat-panel-description>
+    <mat-panel-description>
+        <div class="item_desp">
+            <h6 style="color:pink">Health Benefits</h6>
+            <p class="item_data">{{item.inputHealthBenifits}}</p>
+        </div>
+    </mat-panel-description>
+    <mat-action-row>
+        <span class="item_price">UNIT PRICE(Rs) : {{item.inputUnitPrice}}</span>
+        <span class="spacer"></span>
+        <!--<a mat-button color="primary" [routerLink]="['/edit',item._id]">EDIT</a>-->
+        <mat-form-field>
+          <input
+          matInput
+          name="Qty"
+          type="number"
+          placeholder="Qty"
+          value="1"
+          class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored {{item._id}}"
+          >
+         </mat-form-field>
+        <button mat-button color="warn" (click)="addToCart(item._id)">ADD</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>

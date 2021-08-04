@@ -1,0 +1,55 @@
+<p class="dcen">
+  YOUR CART
+</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="CART_DATA.length>0">
+  <!-- Position Column -->
+  <ng-container matColumnDef="ItemName">
+    <mat-header-cell *matHeaderCellDef> ItemName </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.ItemName}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Quantity">
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Quantity}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Total">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Total}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <span (click)="delete_cart(element.inputItemId)">
+        <i class="material-icons">delete_forever</i>
+      </span>
+    </mat-cell>
+  </ng-container>
+
+
+
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="dright" *ngIf="CART_DATA.length>0">
+    <p style="text-align: right;"><span>Total Amount :</span>{{total}}</p>
+    <button mat-raised-button
+    color="primary"
+    type="button"
+    [routerLink]="['/checkout',total]"
+    >Proceed to Checkout</button>
+    &nbsp;
+   <button mat-raised-button
+    color="warn"
+    type="button"
+    (click)="clearCart()"
+    >Clear Cart</button>
+</div>
+<p class="dcen cart_mesg" *ngIf="CART_DATA.length==0">YOUR CART IS EMPTY</p>
+
